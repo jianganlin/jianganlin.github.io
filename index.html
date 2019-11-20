@@ -62,6 +62,62 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Install-xdebug-on-MacOS-Catalina" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/21/Install-xdebug-on-MacOS-Catalina/" class="article-date">
+  <time datetime="2019-11-20T17:01:50.000Z" itemprop="datePublished">2019-11-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/21/Install-xdebug-on-MacOS-Catalina/">Install xdebug on MacOS Catalina</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-查找可用版本"><a href="#1-查找可用版本" class="headerlink" title="1,查找可用版本"></a>1,查找可用版本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">php -i &gt; info.txt</span><br><span class="line">拷贝info.txt内容到https://xdebug.org/wizard输入框中</span><br></pre></td></tr></table></figure>
+<h3 id="2-提交后-下载xdebug-2-8-0-tgz"><a href="#2-提交后-下载xdebug-2-8-0-tgz" class="headerlink" title="2,提交后, 下载xdebug-2.8.0.tgz"></a>2,提交后, 下载xdebug-2.8.0.tgz</h3><h3 id="3-解压"><a href="#3-解压" class="headerlink" title="3,解压"></a>3,解压</h3><blockquote>
+<p>tar -xvzf xdebug-2.8.0.tgz</p>
+</blockquote>
+<h3 id="4-进入文件夹"><a href="#4-进入文件夹" class="headerlink" title="4,进入文件夹"></a>4,进入文件夹</h3><blockquote>
+<p>cd xdebug-2.8.0</p>
+</blockquote>
+<h3 id="5-执行phpize-若出现"><a href="#5-执行phpize-若出现" class="headerlink" title="5,执行phpize, 若出现:"></a>5,执行phpize, 若出现:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">grep: /usr/include/php/main/php.h: No such file or directory</span><br><span class="line">grep: /usr/include/php/Zend/zend_modules.h: No such file or directory</span><br><span class="line">grep: /usr/include/php/Zend/zend_extensions.h: No such file or directory</span><br><span class="line">Configuring for:</span><br><span class="line">PHP Api Version:        </span><br><span class="line">Zend Module Api No:     </span><br><span class="line">Zend Extension Api No:</span><br></pre></td></tr></table></figure>
+<h3 id="6-执行"><a href="#6-执行" class="headerlink" title="6,执行"></a>6,执行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -uw /</span><br></pre></td></tr></table></figure>
+<h3 id="7-引入请求头连接"><a href="#7-引入请求头连接" class="headerlink" title="7,引入请求头连接"></a>7,引入请求头连接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include /usr/include</span><br></pre></td></tr></table></figure>
+<h3 id="8-再次执行phpize-出现"><a href="#8-再次执行phpize-出现" class="headerlink" title="8,再次执行phpize, 出现:"></a>8,再次执行phpize, 出现:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Configuring for:</span><br><span class="line">...</span><br><span class="line">Zend Module Api No:      20180731</span><br><span class="line">Zend Extension Api No:   320180731</span><br></pre></td></tr></table></figure>
+<h3 id="9-执行"><a href="#9-执行" class="headerlink" title="9,执行"></a>9,执行</h3><blockquote>
+<p>./configure</p>
+</blockquote>
+<h3 id="10-执行"><a href="#10-执行" class="headerlink" title="10,执行"></a>10,执行</h3><blockquote>
+<p>make</p>
+</blockquote>
+<h3 id="11-执行"><a href="#11-执行" class="headerlink" title="11,执行"></a>11,执行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp modules/xdebug.so /usr/lib/php/extensions/no-debug-non-zts-20180731</span><br></pre></td></tr></table></figure>
+<h3 id="12-修改-etc-php-ini"><a href="#12-修改-etc-php-ini" class="headerlink" title="12, 修改: /etc/php.ini"></a>12, 修改: /etc/php.ini</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[xdebug]</span><br><span class="line">zend_extension = /usr/lib/php/extensions/no-debug-non-zts-20180731/xdebug.so</span><br><span class="line">xdebug.remote_enable = 1</span><br><span class="line">xdebug.remote_autostart = 1</span><br><span class="line">xdebug.remote_handler = dbgp</span><br><span class="line">xdebug.remote_host = me.com</span><br><span class="line">xdebug.remote_port = 9001</span><br><span class="line">xdebug.idekey = PHPSTROM</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.jianganlin.com/2019/11/21/Install-xdebug-on-MacOS-Catalina/" data-id="ck37jjtk900034gm1w4m3z6u7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xdebug-php-MacOS-phpize/">xdebug php MacOS phpize</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Mac-brew" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/10/11/Mac-brew/" class="article-date">
@@ -100,7 +156,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.jianganlin.com/2019/10/11/Mac-brew/" data-id="ck29xrvoo0005lgm1vz1mpdlf" class="article-share-link">Share</a>
+      <a data-url="http://blog.jianganlin.com/2019/10/11/Mac-brew/" data-id="ck37jjtkb00044gm1mfcgj8gb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MacOS-brew/">MacOS brew</a></li></ul>
@@ -146,7 +202,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.jianganlin.com/2019/08/29/hello-world/" data-id="ck29xrvon0004lgm19awtpt58" class="article-share-link">Share</a>
+      <a data-url="http://blog.jianganlin.com/2019/08/29/hello-world/" data-id="ck37jjtkc00054gm1d4ls9j0l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -182,7 +238,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.jianganlin.com/2019/01/05/Java-Validation/" data-id="ck29xrvoi0001lgm1dx6jto0x" class="article-share-link">Share</a>
+      <a data-url="http://blog.jianganlin.com/2019/01/05/Java-Validation/" data-id="ck37jjtk600014gm18x0ezsy4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javax-validation-hibernate-validator/">javax validation, hibernate-validator</a></li></ul>
@@ -297,7 +353,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.jianganlin.com/2018/08/02/CentOS/" data-id="ck29xrvod0000lgm1wgrf6ye0" class="article-share-link">Share</a>
+      <a data-url="http://blog.jianganlin.com/2018/08/02/CentOS/" data-id="ck37jjtk100004gm1tt2orr8k" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centOS-java-nginx-环境搭建/">centOS, java, nginx, 环境搭建</a></li></ul>
@@ -340,7 +396,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.jianganlin.com/2018/07/24/about-me/" data-id="ck29xrvom0003lgm1aplrim7g" class="article-share-link">Share</a>
+      <a data-url="http://blog.jianganlin.com/2018/07/24/about-me/" data-id="ck37jjtkd00084gm14hnlduwm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -363,7 +419,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MacOS-brew/">MacOS brew</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centOS-java-nginx-环境搭建/">centOS, java, nginx, 环境搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javax-validation-hibernate-validator/">javax validation, hibernate-validator</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MacOS-brew/">MacOS brew</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centOS-java-nginx-环境搭建/">centOS, java, nginx, 环境搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javax-validation-hibernate-validator/">javax validation, hibernate-validator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xdebug-php-MacOS-phpize/">xdebug php MacOS phpize</a></li></ul>
     </div>
   </div>
 
@@ -373,7 +429,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/MacOS-brew/" style="font-size: 10px;">MacOS brew</a> <a href="/tags/centOS-java-nginx-环境搭建/" style="font-size: 10px;">centOS, java, nginx, 环境搭建</a> <a href="/tags/javax-validation-hibernate-validator/" style="font-size: 10px;">javax validation, hibernate-validator</a>
+      <a href="/tags/MacOS-brew/" style="font-size: 10px;">MacOS brew</a> <a href="/tags/centOS-java-nginx-环境搭建/" style="font-size: 10px;">centOS, java, nginx, 环境搭建</a> <a href="/tags/javax-validation-hibernate-validator/" style="font-size: 10px;">javax validation, hibernate-validator</a> <a href="/tags/xdebug-php-MacOS-phpize/" style="font-size: 10px;">xdebug php MacOS phpize</a>
     </div>
   </div>
 
@@ -382,7 +438,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
     </div>
   </div>
 
@@ -393,6 +449,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/11/21/Install-xdebug-on-MacOS-Catalina/">Install xdebug on MacOS Catalina</a>
+          </li>
         
           <li>
             <a href="/2019/10/11/Mac-brew/">Mac brew</a>
@@ -410,10 +470,6 @@
             <a href="/2018/08/02/CentOS/">CentOS</a>
           </li>
         
-          <li>
-            <a href="/2018/07/24/about-me/">关于我</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -426,7 +482,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2019 Alan Jiang<br>
+      &copy; 2019 Jiang Anlin<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
     <div class="inner">
