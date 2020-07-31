@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>CentOS | Jiang Alan&#39;s Home page</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="centOS, java, nginx, 环境搭建," />
+  
+
+  <meta name="description" content="安装Java1, 更新包 yum update  2, 检测是否已安装 java -version  3, 去官网下载Java8 (rpm), 找到下载链接 http://www.oracle.com/technetwork/java/javase/downloads/index.html  Mac 下点击下载图标,开始下载后取消,右键获取下载链接  http://download.oracl">
+<meta name="keywords" content="centOS, java, nginx, 环境搭建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS">
+<meta property="og:url" content="http://jianganlin.com/2018/08/02/CentOS/index.html">
+<meta property="og:site_name" content="Jiang Alan&#39;s Home page">
+<meta property="og:description" content="安装Java1, 更新包 yum update  2, 检测是否已安装 java -version  3, 去官网下载Java8 (rpm), 找到下载链接 http://www.oracle.com/technetwork/java/javase/downloads/index.html  Mac 下点击下载图标,开始下载后取消,右键获取下载链接  http://download.oracl">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-03-05T06:37:05.659Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CentOS">
+<meta name="twitter:description" content="安装Java1, 更新包 yum update  2, 检测是否已安装 java -version  3, 去官网下载Java8 (rpm), 找到下载链接 http://www.oracle.com/technetwork/java/javase/downloads/index.html  Mac 下点击下载图标,开始下载后取消,右键获取下载链接  http://download.oracl">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-38189205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Java"><span class="toc-text">安装Java</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-更新包"><span class="toc-text">1, 更新包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-检测是否已安装"><span class="toc-text">2, 检测是否已安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-去官网下载Java8-rpm-找到下载链接"><span class="toc-text">3, 去官网下载Java8 (rpm), 找到下载链接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-下载"><span class="toc-text">4, 下载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-重命名下载的文件"><span class="toc-text">5, 重命名下载的文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-安装"><span class="toc-text">6, 安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-检测是否安装成功-确认Java安装路径-usr-java"><span class="toc-text">7, 检测是否安装成功, 确认Java安装路径: /usr/java/</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-设置java环境变量"><span class="toc-text">8, 设置java环境变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-确认环境变量是否设置成功"><span class="toc-text">9, 确认环境变量是否设置成功</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#搭建Maven环境"><span class="toc-text">搭建Maven环境</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-下载Maven"><span class="toc-text">1,下载Maven</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-下载安装文件"><span class="toc-text">2,下载安装文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-解压到指定目录"><span class="toc-text">3, 解压到指定目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-配置环境变量"><span class="toc-text">4, 配置环境变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-确认是否安装成功"><span class="toc-text">5, 确认是否安装成功</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx安装和配置"><span class="toc-text">Nginx安装和配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-安装"><span class="toc-text">1, 安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-查看版本信息"><span class="toc-text">2, 查看版本信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-查看配置路径"><span class="toc-text">3, 查看配置路径</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-启动"><span class="toc-text">4, 启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-关闭"><span class="toc-text">5, 关闭</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-配置Https-苹果ATS"><span class="toc-text">6, 配置Https 苹果ATS</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Git"><span class="toc-text">安装Git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新git"><span class="toc-text">更新git</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-CentOS" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">CentOS</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2018.08.02</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Jiang Anlin</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h2 id="安装Java"><a href="#安装Java" class="headerlink" title="安装Java"></a>安装Java</h2><h4 id="1-更新包"><a href="#1-更新包" class="headerlink" title="1, 更新包"></a>1, 更新包</h4><blockquote>
+<p>yum update</p>
+</blockquote>
+<h4 id="2-检测是否已安装"><a href="#2-检测是否已安装" class="headerlink" title="2, 检测是否已安装"></a>2, 检测是否已安装</h4><blockquote>
+<p>java -version</p>
+</blockquote>
+<h4 id="3-去官网下载Java8-rpm-找到下载链接"><a href="#3-去官网下载Java8-rpm-找到下载链接" class="headerlink" title="3, 去官网下载Java8 (rpm), 找到下载链接"></a>3, 去官网下载Java8 (rpm), 找到下载链接</h4><blockquote>
+<p><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a></p>
+</blockquote>
+<p>Mac 下点击下载图标,开始下载后取消,右键获取下载链接</p>
+<blockquote>
+<p><a href="http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.rpm?AuthParam=1533226087_a303b41d997c044de6470da5b9a3d806" target="_blank" rel="noopener">http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.rpm?AuthParam=1533226087_a303b41d997c044de6470da5b9a3d806</a></p>
+</blockquote>
+<h4 id="4-下载"><a href="#4-下载" class="headerlink" title="4, 下载"></a>4, 下载</h4><blockquote>
+<p>wget <a href="http://xxxx" target="_blank" rel="noopener">http://xxxx</a></p>
+</blockquote>
+<h4 id="5-重命名下载的文件"><a href="#5-重命名下载的文件" class="headerlink" title="5, 重命名下载的文件"></a>5, 重命名下载的文件</h4><blockquote>
+<p>mv xxx xxx.rpm</p>
+</blockquote>
+<h4 id="6-安装"><a href="#6-安装" class="headerlink" title="6, 安装"></a>6, 安装</h4><blockquote>
+<p>rpm -ivh jdk-8u181-linux-x64.rpm</p>
+</blockquote>
+<h4 id="7-检测是否安装成功-确认Java安装路径-usr-java"><a href="#7-检测是否安装成功-确认Java安装路径-usr-java" class="headerlink" title="7, 检测是否安装成功, 确认Java安装路径: /usr/java/"></a>7, 检测是否安装成功, 确认Java安装路径: /usr/java/</h4><blockquote>
+<p>java -version</p>
+</blockquote>
+<h4 id="8-设置java环境变量"><a href="#8-设置java环境变量" class="headerlink" title="8, 设置java环境变量"></a>8, 设置java环境变量</h4><blockquote>
+<p>vi ~/.bash_profile </p>
+</blockquote>
+<p>编辑以下内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># .bash_profile</span><br><span class="line"># Get the aliases and functions</span><br><span class="line">if [ -f ~/.bashrc ]; then</span><br><span class="line">        . ~/.bashrc</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"># User specific environment and startup programs</span><br><span class="line">PATH=$PATH:$HOME/bin</span><br><span class="line"></span><br><span class="line">export JAVA_HOME=/usr/java/jdk1.8.0_181-amd64</span><br><span class="line">export PATH=$PATH:$JAVA_HOME</span><br><span class="line"></span><br><span class="line">export PATH</span><br></pre></td></tr></table></figure></p>
+<p>使配置生效</p>
+<blockquote>
+<p>source ~/.bash_profile</p>
+</blockquote>
+<h4 id="9-确认环境变量是否设置成功"><a href="#9-确认环境变量是否设置成功" class="headerlink" title="9, 确认环境变量是否设置成功"></a>9, 确认环境变量是否设置成功</h4><blockquote>
+<p>echo $JAVA_HOME</p>
+</blockquote>
+<h2 id="搭建Maven环境"><a href="#搭建Maven环境" class="headerlink" title="搭建Maven环境"></a>搭建Maven环境</h2><h4 id="1-下载Maven"><a href="#1-下载Maven" class="headerlink" title="1,下载Maven"></a>1,下载Maven</h4><p>进入官网</p>
+<blockquote>
+<p><a href="https://maven.apache.org" target="_blank" rel="noopener">https://maven.apache.org</a></p>
+</blockquote>
+<p>找到下载地址</p>
+<blockquote>
+<p><a href="http://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.zip" target="_blank" rel="noopener">http://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.zip</a></p>
+</blockquote>
+<h4 id="2-下载安装文件"><a href="#2-下载安装文件" class="headerlink" title="2,下载安装文件"></a>2,下载安装文件</h4><blockquote>
+<p>wget <a href="http://xxxx.zip" target="_blank" rel="noopener">http://xxxx.zip</a></p>
+</blockquote>
+<h4 id="3-解压到指定目录"><a href="#3-解压到指定目录" class="headerlink" title="3, 解压到指定目录"></a>3, 解压到指定目录</h4><blockquote>
+<p>unzip apache-maven-3.5.4-bin.zip -d /applications/</p>
+</blockquote>
+<h4 id="4-配置环境变量"><a href="#4-配置环境变量" class="headerlink" title="4, 配置环境变量"></a>4, 配置环境变量</h4><p>在Java环境变量后面添加下列代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">M2_HOME=/applications/maven_3_5_4</span><br><span class="line">export PATH=$&#123;M2_HOME&#125;/bin:$&#123;PATH&#125;</span><br></pre></td></tr></table></figure></p>
+<p>使配置生效</p>
+<blockquote>
+<p>source ~/.bash_profile</p>
+</blockquote>
+<h4 id="5-确认是否安装成功"><a href="#5-确认是否安装成功" class="headerlink" title="5, 确认是否安装成功"></a>5, 确认是否安装成功</h4><blockquote>
+<p>mvn -v</p>
+</blockquote>
+<h2 id="Nginx安装和配置"><a href="#Nginx安装和配置" class="headerlink" title="Nginx安装和配置"></a>Nginx安装和配置</h2><h4 id="1-安装"><a href="#1-安装" class="headerlink" title="1, 安装"></a>1, 安装</h4><blockquote>
+<p>yum install -y nginx</p>
+</blockquote>
+<h4 id="2-查看版本信息"><a href="#2-查看版本信息" class="headerlink" title="2, 查看版本信息"></a>2, 查看版本信息</h4><blockquote>
+<p>nginx -v</p>
+</blockquote>
+<h4 id="3-查看配置路径"><a href="#3-查看配置路径" class="headerlink" title="3, 查看配置路径"></a>3, 查看配置路径</h4><blockquote>
+<p>nginx -t</p>
+</blockquote>
+<h4 id="4-启动"><a href="#4-启动" class="headerlink" title="4, 启动"></a>4, 启动</h4><blockquote>
+<p>nginx</p>
+</blockquote>
+<h4 id="5-关闭"><a href="#5-关闭" class="headerlink" title="5, 关闭"></a>5, 关闭</h4><blockquote>
+<p>nginx -s stop</p>
+</blockquote>
+<h4 id="6-配置Https-苹果ATS"><a href="#6-配置Https-苹果ATS" class="headerlink" title="6, 配置Https 苹果ATS"></a>6, 配置Https 苹果ATS</h4><p>(1), 配置Https<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen 443;</span><br><span class="line">        server_name xxx.com; #填写绑定证书的域名</span><br><span class="line">        ssl on;</span><br><span class="line">        ssl_certificate /etc/nginx/https_crt/1_xxx.com_bundle.crt;</span><br><span class="line">        ssl_certificate_key /etc/nginx/https_crt/2_xxx.com.key;</span><br><span class="line">        ssl_session_timeout 5m;</span><br><span class="line">        # ssl_protocols TLSv1 TLSv1.1 TLSv1.2; #按照这个协议配置</span><br><span class="line">        # ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;#按照这个套件配置</span><br><span class="line">        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4; #苹果ATS</span><br><span class="line">        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">        ssl_prefer_server_ciphers on;</span><br><span class="line">        location / &#123;</span><br><span class="line">            root   /applications/xxx; #站点目录</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>(2), 配置http强制转向https<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen  80;</span><br><span class="line">    server_name xxx.com;</span><br><span class="line">    rewrite ^(.*) https://$server_name$1 permanent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p></p>
+<h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install git</span><br><span class="line"></span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
+<h2 id="更新git"><a href="#更新git" class="headerlink" title="更新git"></a>更新git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">删除原版本</span><br><span class="line">yum remove git</span><br><span class="line"></span><br><span class="line">安装依赖包</span><br><span class="line">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel</span><br><span class="line"></span><br><span class="line">yum install  gcc perl-ExtUtils-MakeMaker</span><br><span class="line"></span><br><span class="line">下载源码</span><br><span class="line">wget https://www.kernel.org/pub/software/scm/git/git-2.9.5.tar.gz</span><br><span class="line"></span><br><span class="line">解压</span><br><span class="line">tar xzf git-2.9.5.tar.gz</span><br><span class="line"></span><br><span class="line">编译</span><br><span class="line">cd git-2.9.5</span><br><span class="line">make prefix=/usr/local/git all</span><br><span class="line">make prefix=/usr/local/git install</span><br><span class="line"></span><br><span class="line">配置</span><br><span class="line">echo &quot;export PATH=$PATH:/usr/local/git/bin&quot; &gt;&gt; /etc/bashrc</span><br><span class="line">source /etc/bashrc</span><br></pre></td></tr></table></figure>
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持forsigner</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2018/07/24/about-me/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2019/01/05/Java-Validation/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+<!-- Gitalk评论插件通用代码 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+<script>
+const gitalk = new Gitalk({
+  clientID: '277317290454635afa73',
+  clientSecret: '78223c859304da5e8d71bfce136d436c6ff95c37',
+  repo: 'blog-comment',
+  owner: 'forsigner',
+  // 在这里设置一下截取前50个字符串, 这是因为 github 对 label 的长度有了要求, 如果超过
+  // 50个字符串则会报错.
+  // id: location.pathname.split('/').pop().substring(0, 49),
+  id: md5(location.pathname),
+  admin: ['forsigner'],
+  // facebook-like distraction free mode
+  distractionFreeMode: false
+})
+gitalk.render('gitalk-container')
+</script>
+<!-- Gitalk代码结束 -->
+
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>Install xdebug on MacOS Catalina | Jiang Alan&#39;s Home page</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="xdebug php MacOS phpize," />
+  
+
+  <meta name="description" content="1,查找可用版本12php -i &amp;gt; info.txt拷贝info.txt内容到https://xdebug.org/wizard输入框中 2,提交后, 下载xdebug-2.8.0.tgz3,解压 tar -xvzf xdebug-2.8.0.tgz  4,进入文件夹 cd xdebug-2.8.0  5,执行phpize, 若出现:1234567grep: /usr/include/ph">
+<meta name="keywords" content="xdebug php MacOS phpize">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Install xdebug on MacOS Catalina">
+<meta property="og:url" content="http://jianganlin.com/2019/11/21/Install-xdebug-on-MacOS-Catalina/index.html">
+<meta property="og:site_name" content="Jiang Alan&#39;s Home page">
+<meta property="og:description" content="1,查找可用版本12php -i &amp;gt; info.txt拷贝info.txt内容到https://xdebug.org/wizard输入框中 2,提交后, 下载xdebug-2.8.0.tgz3,解压 tar -xvzf xdebug-2.8.0.tgz  4,进入文件夹 cd xdebug-2.8.0  5,执行phpize, 若出现:1234567grep: /usr/include/ph">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-11-20T17:07:52.245Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Install xdebug on MacOS Catalina">
+<meta name="twitter:description" content="1,查找可用版本12php -i &amp;gt; info.txt拷贝info.txt内容到https://xdebug.org/wizard输入框中 2,提交后, 下载xdebug-2.8.0.tgz3,解压 tar -xvzf xdebug-2.8.0.tgz  4,进入文件夹 cd xdebug-2.8.0  5,执行phpize, 若出现:1234567grep: /usr/include/ph">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-38189205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-查找可用版本"><span class="toc-text">1,查找可用版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-提交后-下载xdebug-2-8-0-tgz"><span class="toc-text">2,提交后, 下载xdebug-2.8.0.tgz</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-解压"><span class="toc-text">3,解压</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-进入文件夹"><span class="toc-text">4,进入文件夹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-执行phpize-若出现"><span class="toc-text">5,执行phpize, 若出现:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-执行"><span class="toc-text">6,执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-引入请求头连接"><span class="toc-text">7,引入请求头连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-再次执行phpize-出现"><span class="toc-text">8,再次执行phpize, 出现:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-执行"><span class="toc-text">9,执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-执行"><span class="toc-text">10,执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-执行"><span class="toc-text">11,执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-修改-etc-php-ini"><span class="toc-text">12, 修改: /etc/php.ini</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-Install-xdebug-on-MacOS-Catalina" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Install xdebug on MacOS Catalina</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2019.11.21</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Jiang Anlin</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h3 id="1-查找可用版本"><a href="#1-查找可用版本" class="headerlink" title="1,查找可用版本"></a>1,查找可用版本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">php -i &gt; info.txt</span><br><span class="line">拷贝info.txt内容到https://xdebug.org/wizard输入框中</span><br></pre></td></tr></table></figure>
+<h3 id="2-提交后-下载xdebug-2-8-0-tgz"><a href="#2-提交后-下载xdebug-2-8-0-tgz" class="headerlink" title="2,提交后, 下载xdebug-2.8.0.tgz"></a>2,提交后, 下载xdebug-2.8.0.tgz</h3><h3 id="3-解压"><a href="#3-解压" class="headerlink" title="3,解压"></a>3,解压</h3><blockquote>
+<p>tar -xvzf xdebug-2.8.0.tgz</p>
+</blockquote>
+<h3 id="4-进入文件夹"><a href="#4-进入文件夹" class="headerlink" title="4,进入文件夹"></a>4,进入文件夹</h3><blockquote>
+<p>cd xdebug-2.8.0</p>
+</blockquote>
+<h3 id="5-执行phpize-若出现"><a href="#5-执行phpize-若出现" class="headerlink" title="5,执行phpize, 若出现:"></a>5,执行phpize, 若出现:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">grep: /usr/include/php/main/php.h: No such file or directory</span><br><span class="line">grep: /usr/include/php/Zend/zend_modules.h: No such file or directory</span><br><span class="line">grep: /usr/include/php/Zend/zend_extensions.h: No such file or directory</span><br><span class="line">Configuring for:</span><br><span class="line">PHP Api Version:        </span><br><span class="line">Zend Module Api No:     </span><br><span class="line">Zend Extension Api No:</span><br></pre></td></tr></table></figure>
+<h3 id="6-执行"><a href="#6-执行" class="headerlink" title="6,执行"></a>6,执行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -uw /</span><br></pre></td></tr></table></figure>
+<h3 id="7-引入请求头连接"><a href="#7-引入请求头连接" class="headerlink" title="7,引入请求头连接"></a>7,引入请求头连接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include /usr/include</span><br></pre></td></tr></table></figure>
+<h3 id="8-再次执行phpize-出现"><a href="#8-再次执行phpize-出现" class="headerlink" title="8,再次执行phpize, 出现:"></a>8,再次执行phpize, 出现:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Configuring for:</span><br><span class="line">...</span><br><span class="line">Zend Module Api No:      20180731</span><br><span class="line">Zend Extension Api No:   320180731</span><br></pre></td></tr></table></figure>
+<h3 id="9-执行"><a href="#9-执行" class="headerlink" title="9,执行"></a>9,执行</h3><blockquote>
+<p>./configure</p>
+</blockquote>
+<h3 id="10-执行"><a href="#10-执行" class="headerlink" title="10,执行"></a>10,执行</h3><blockquote>
+<p>make</p>
+</blockquote>
+<h3 id="11-执行"><a href="#11-执行" class="headerlink" title="11,执行"></a>11,执行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp modules/xdebug.so /usr/lib/php/extensions/no-debug-non-zts-20180731</span><br></pre></td></tr></table></figure>
+<h3 id="12-修改-etc-php-ini"><a href="#12-修改-etc-php-ini" class="headerlink" title="12, 修改: /etc/php.ini"></a>12, 修改: /etc/php.ini</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[xdebug]</span><br><span class="line">zend_extension = /usr/lib/php/extensions/no-debug-non-zts-20180731/xdebug.so</span><br><span class="line">xdebug.remote_enable = 1</span><br><span class="line">xdebug.remote_autostart = 1</span><br><span class="line">xdebug.remote_handler = dbgp</span><br><span class="line">xdebug.remote_host = me.com</span><br><span class="line">xdebug.remote_port = 9001</span><br><span class="line">xdebug.idekey = PHPSTROM</span><br></pre></td></tr></table></figure>
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持forsigner</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2019/10/11/Mac-brew/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2020/02/28/python-scrapy/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+<!-- Gitalk评论插件通用代码 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+<script>
+const gitalk = new Gitalk({
+  clientID: '277317290454635afa73',
+  clientSecret: '78223c859304da5e8d71bfce136d436c6ff95c37',
+  repo: 'blog-comment',
+  owner: 'forsigner',
+  // 在这里设置一下截取前50个字符串, 这是因为 github 对 label 的长度有了要求, 如果超过
+  // 50个字符串则会报错.
+  // id: location.pathname.split('/').pop().substring(0, 49),
+  id: md5(location.pathname),
+  admin: ['forsigner'],
+  // facebook-like distraction free mode
+  distractionFreeMode: false
+})
+gitalk.render('gitalk-container')
+</script>
+<!-- Gitalk代码结束 -->
+
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
